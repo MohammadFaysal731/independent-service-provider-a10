@@ -14,8 +14,8 @@ const Checkout = () => {
                     <Form.Control type="email" placeholder="Enter Email" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Enter Password" />
+                <Form.Group className="mb-3" controlId="formBasicAddress">
+                    <Form.Control type="password" placeholder="Enter Address" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPhone">
                     <Form.Control type="number" placeholder="Enter Phone" />
