@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Register = () => {
     const navigate = useNavigate();
-
+    const nameRef = useRef('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const confirmPasswordRef = useRef('');
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
     const navigateLogin = () => {
         navigate('/login')
     }
+
+
+
     return (
         <div className='p-5 mt-3 w-50 mx-auto border rounded'>
             <h3 className='text-success'>Please Register</h3>

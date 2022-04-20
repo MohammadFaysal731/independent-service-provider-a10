@@ -11,7 +11,7 @@ const Login = () => {
     }
 
     return (
-        <div className='p-5 mt-3 w-50 mx-auto border rounded'>
+        <div className='p-5 mt-3 w-50 mx-auto border rounded '>
             <h3 className='text-success'>Please Login</h3>
             <Form>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
@@ -28,6 +28,8 @@ const Login = () => {
             <p>Already have an account ? <button onClick={navigateRegister} className='btn btn-link text-success  text-decoration-none'>Register</button></p>
             <SocialLogin></SocialLogin>
         </div>
+
+
     );
 };
 
