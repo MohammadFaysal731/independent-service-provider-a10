@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Daily Package",
+        "price": 12,
+        "img": "https://i.ibb.co/4RHX1c8/services3.png",
+        "description": "Free Consultation and 2 Hours Training with Full Equipment."
+    },
+    {
+        "id": 2,
+        "name": "Weekly Package",
+        "price": 75,
+        "img": "https://i.ibb.co/CHRyCX4/services2.png",
+        "description": "Free Consultation and 2 Hours Training with Full Equipment."
+    },
+    {
+        "id": 3,
+        "name": "Monthly Package",
+        "price": 340,
+        "img": "https://i.ibb.co/XbgQ9tG/services1.png",
+        "description": "Free Consultation and 2 Hours Training with Full Equipment."
+    }
+]
