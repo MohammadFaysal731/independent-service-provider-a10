@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login/Login'
 import Header from './Sheared/Header/Header';
 import NotFound from './Sheared/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 function App() {
   return (
     <div >
@@ -16,7 +17,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/services/:servicesId' element={<Checkout></Checkout>}></Route>
+        <Route path='/services/:servicesId' element={
+          <RequireAuth>
+            <Checkout></Checkout>
+          </RequireAuth>
+        }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/classes' element={<Classes></Classes>}></Route>
         <Route path='/aboutMe' element={<About></About>}></Route>
