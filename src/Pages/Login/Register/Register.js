@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const Register = () => {
@@ -18,7 +18,7 @@ const Register = () => {
         user,
         loading,
     ] = useCreateUserWithEmailAndPassword(auth);
-
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
     const navigateLogin = () => {
         navigate('/login')
     }
@@ -38,13 +38,15 @@ const Register = () => {
     if (user) {
         navigate('/home')
     }
-    const handelRegister = event => {
+
+    const handelRegister = async event => {
         event.preventDefault();
         if (password !== confirmPassword) {
             return setError('Please set sam password both password field !!');
         }
-        createUserWithEmailAndPassword(email, password)
-
+        await createUserWithEmailAndPassword(email, password);
+        await sendEmailVerification(email)
+        alert('Sent email')
     }
 
 

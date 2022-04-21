@@ -26,6 +26,7 @@ const Login = () => {
                 </Button>
             </Form>
             <p>Already have an account ? <button onClick={navigateRegister} className='btn btn-link text-success  text-decoration-none'>Register</button></p>
+            <p>Forget Password ? <button className='btn btn-link text-success  text-decoration-none'>Reset Password</button></p>
             <SocialLogin></SocialLogin>
         </div>
 
