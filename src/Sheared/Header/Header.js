@@ -4,7 +4,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../images/logoes/strong-gym-logo.png';
-import CustomLink from '../CustomLink/CustomLink';
 const Header = () => {
     const [user] = useAuthState(auth);
     const handleSingOut = () => {

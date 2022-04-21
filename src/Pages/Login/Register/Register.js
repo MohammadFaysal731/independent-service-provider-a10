@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import Loading from '../../../Sheared/Loading/Loading'
 import auth from '../../../firebase.init';
 
 const Register = () => {
@@ -37,6 +38,9 @@ const Register = () => {
     }
     if (user) {
         navigate('/home')
+    }
+    if (loading || sending) {
+        return <Loading></Loading>
     }
 
     const handelRegister = async event => {
