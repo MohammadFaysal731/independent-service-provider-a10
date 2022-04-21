@@ -1,12 +1,10 @@
 import { signOut } from 'firebase/auth';
-import React, { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../images/logoes/strong-gym-logo.png';
 const Header = () => {
-    const [service, setService] = useState();
     const [user] = useAuthState(auth);
     console.log(user)
     const handleSingOut = () => {
@@ -23,9 +21,8 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link href={service ? 'home#services' : '/home#services'}>SERVICES</Nav.Link>
+                        <Nav.Link href="home#services">SERVICES</Nav.Link>
                         <Nav.Link as={Link} to="/blogs">BLOGS</Nav.Link>
-                        <Nav.Link as={Link} to="/classes">CLASSES</Nav.Link>
                         <Nav.Link as={Link} to="/aboutMe">ABOUT ME</Nav.Link>
                         {
                             user ?
