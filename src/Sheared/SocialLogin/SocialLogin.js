@@ -5,16 +5,19 @@ import github from '../../images/logoes/github.png'
 import auth from '../../firebase.init';
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 const SocialLogin = () => {
     const navigate = useNavigate();
     const [signInWithGoogle, googleUser, googleSingInLoading, googleSingInError] = useSignInWithGoogle(auth);
     const [signInWithFacebook, facebookUser, facebookSingInLoading, facebookSingInError] = useSignInWithFacebook(auth);
     const [signInWithGithub, githubUser, githubSingInLoading, githubSingInError] = useSignInWithGithub(auth);
 
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
     let errorElement;
     if (googleUser || githubUser || facebookUser) {
-        navigate('/blogs')
+        navigate(from, { replace: true });
     }
     if (googleSingInLoading || githubSingInLoading || facebookSingInLoading) {
         return <Loading></Loading>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import Loading from '../../../Sheared/Loading/Loading'
@@ -14,6 +14,10 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [agree, setAgree] = useState(false);
+
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
     const [
         createUserWithEmailAndPassword,
         user,
@@ -37,7 +41,7 @@ const Register = () => {
         setConfirmPassword(event.target.value);
     }
     if (user) {
-        navigate('/home')
+        navigate(from, { replace: true })
     }
     if (loading || sending) {
         return <Loading></Loading>

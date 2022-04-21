@@ -1,8 +1,14 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 const Checkout = () => {
+    const navigate = useNavigate();
+
+    const handleCheckout = id => {
+        navigate(`/services/${id}`)
+    }
     return (
         <div className='p-5 mt-3 w-50 mx-auto border rounded'>
             <h3 className='text-success'>Please Checkout</h3>

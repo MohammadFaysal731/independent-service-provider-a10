@@ -1,16 +1,19 @@
-import { async } from '@firebase/util';
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../../Sheared/Loading/Loading';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
 
 const Login = () => {
-    const navigate = useNavigate();
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const navigateRegister = () => {
         navigate('/register')
@@ -25,7 +28,7 @@ const Login = () => {
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
     if (user) {
-        navigate('/blogs')
+        navigate(from, { replace: true });
     }
     if (loading || sending) {
         return <Loading></Loading>

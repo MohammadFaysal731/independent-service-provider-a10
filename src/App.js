@@ -9,6 +9,7 @@ import Header from './Sheared/Header/Header';
 import NotFound from './Sheared/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import Services from './Pages/Services/Services/Services';
 function App() {
   return (
     <div >
@@ -16,7 +17,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/services/:servicesId' element={
+        <Route path='/services' element={<Services></Services>}></Route>
+        <Route path='/checkout/:checkoutId' element={
           <RequireAuth>
             <Checkout></Checkout>
           </RequireAuth>
