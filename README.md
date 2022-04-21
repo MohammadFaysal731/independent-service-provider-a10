@@ -1,10 +1,17 @@
-# Getting Started with Create React App
+# STRONG GYM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is The live site of project [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+ The Project have 5 Route
+#### &bull;Title
+#### &bull;Services
+#### &bull;Blogs
+#### &bull;About me
+#### &bull;Login
+
+#### This project will make by create-react-app and use react-router, react-firebase-hook,react-toastify ect. 
 
 ### `npm start`
 

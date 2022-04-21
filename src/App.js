@@ -10,6 +10,7 @@ import NotFound from './Sheared/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Services from './Pages/Services/Services/Services';
+import Footer from './Sheared/Footer/Footer';
 function App() {
   return (
     <div >
@@ -29,6 +30,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
