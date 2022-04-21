@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../../Sheared/Loading/Loading';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -43,7 +45,7 @@ const Login = () => {
     const resetPassword = async () => {
         const email = emailRef.current.value;
         await sendPasswordResetEmail(email);
-        alert('Sent email')
+        toast('Sent Email For ResetPassword')
     }
 
     return (
@@ -57,7 +59,7 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control ref={passwordRef} type="password" placeholder="Enter Password" required />
                 </Form.Group>
-                <p>{singInError?.message}{resetError?.message}</p>
+                <p className='text-danger'>{singInError?.message}{resetError?.message}</p>
                 <Button variant="success w-100" type="submit">
                     Login
                 </Button>
@@ -66,6 +68,7 @@ const Login = () => {
             <p>Already have an account ? <button onClick={navigateRegister} className='btn btn-link text-success  text-decoration-none'>Register</button></p>
             <p>Forget Password ? <button onClick={resetPassword} className='btn btn-link text-success  text-decoration-none'>Reset Password</button></p>
             <SocialLogin></SocialLogin>
+            <ToastContainer></ToastContainer>
         </div>
 
 
