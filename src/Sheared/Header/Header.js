@@ -4,15 +4,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../images/logoes/strong-gym-logo.png';
+import CustomLink from '../CustomLink/CustomLink';
 const Header = () => {
     const [user] = useAuthState(auth);
-    console.log(user)
     const handleSingOut = () => {
         signOut(auth);
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" sticky='top'>
             <Container>
                 <Navbar.Brand as={Link} to="/home" >
                     <img className='rounded-circle mx-2' src={logo} alt="" />

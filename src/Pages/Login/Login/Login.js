@@ -15,11 +15,11 @@ const Login = () => {
             <h3 className='text-success'>Please Login</h3>
             <Form>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Enter Email" />
+                    <Form.Control type="email" placeholder="Enter Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Enter Password" />
+                    <Form.Control type="password" placeholder="Enter Password" required />
                 </Form.Group>
                 <Button variant="success w-100" type="submit">
                     Login

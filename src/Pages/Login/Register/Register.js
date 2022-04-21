@@ -7,16 +7,18 @@ import auth from '../../../firebase.init';
 
 const Register = () => {
     const navigate = useNavigate();
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+    const [agree, setAgree] = useState(false);
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
-        error,
     ] = useCreateUserWithEmailAndPassword(auth);
+
     const navigateLogin = () => {
         navigate('/login')
     }
@@ -36,11 +38,10 @@ const Register = () => {
     if (user) {
         navigate('/home')
     }
-
     const handelRegister = event => {
         event.preventDefault();
         if (password !== confirmPassword) {
-            return error;
+            return setError('Please set sam password both password field !!');
         }
         createUserWithEmailAndPassword(email, password)
 
@@ -53,19 +54,23 @@ const Register = () => {
             <h3 className='text-success'>Please Register</h3>
             <Form onSubmit={handelRegister}>
                 <Form.Group className="mb-3 " controlId="formBasicName">
-                    <Form.Control onBlur={handelNameBlur} type="text" placeholder="Enter Name" />
+                    <Form.Control onBlur={handelNameBlur} type="text" placeholder="Enter Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
-                    <Form.Control onBlur={handelEmailBlur} type="email" placeholder="Enter Email" />
+                    <Form.Control onBlur={handelEmailBlur} type="email" placeholder="Enter Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control onBlur={handelPasswordBlur} type="password" placeholder="Enter Password" />
+                    <Form.Control onBlur={handelPasswordBlur} type="password" placeholder="Enter Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-                    <Form.Control onBlur={handelConfirmPasswordBlur} type="password" placeholder="Confirm Password" />
+                    <Form.Control onBlur={handelConfirmPasswordBlur} type="password" placeholder="Confirm Password" required />
                 </Form.Group>
-                <Button variant="success w-100" type="submit">
+                <p className='text-danger'>{error}</p>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check onClick={() => setAgree(!agree)} type="checkbox" name='terms' label="Agree to STRONG GYM terms and conditions" />
+                </Form.Group>
+                <Button disabled={!agree} variant="success w-100" type="submit">
                     Register
                 </Button>
             </Form>

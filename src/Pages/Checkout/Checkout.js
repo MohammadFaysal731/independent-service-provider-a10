@@ -8,17 +8,17 @@ const Checkout = () => {
             <h3 className='text-success'>Please Checkout</h3>
             <Form>
                 <Form.Group className="mb-3 " controlId="formBasicName">
-                    <Form.Control type="text" placeholder="Enter Name" />
+                    <Form.Control type="text" placeholder="Enter Name" required />
                 </Form.Group>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Enter Email" />
+                    <Form.Control type="email" placeholder="Enter Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicAddress">
-                    <Form.Control type="password" placeholder="Enter Address" />
+                    <Form.Control type="password" placeholder="Enter Address" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPhone">
-                    <Form.Control type="number" placeholder="Enter Phone" />
+                    <Form.Control type="number" placeholder="Enter Phone" required />
                 </Form.Group>
                 <Button variant="success" type="submit">
                     Checkout
