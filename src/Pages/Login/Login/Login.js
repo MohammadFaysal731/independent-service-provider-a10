@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../../Sheared/Loading/Loading';
 import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -44,7 +44,7 @@ const Login = () => {
 
     const resetPassword = async () => {
         const email = emailRef.current.value;
-        if (user) {
+        if (email) {
             await sendPasswordResetEmail(email);
             toast('Sent Email For ResetPassword');
         }
@@ -73,7 +73,7 @@ const Login = () => {
             <p>Already have an account ? <button onClick={navigateRegister} className='btn btn-link text-success  text-decoration-none'>Register</button></p>
             <p>Forget Password ? <button onClick={resetPassword} className='btn btn-link text-success  text-decoration-none'>Reset Password</button></p>
             <SocialLogin></SocialLogin>
-            <ToastContainer></ToastContainer>
+
         </div>
 
 

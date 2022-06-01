@@ -5,6 +5,7 @@ import SocialLogin from '../../../Sheared/SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import Loading from '../../../Sheared/Loading/Loading'
 import auth from '../../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -54,7 +55,7 @@ const Register = () => {
         }
         await createUserWithEmailAndPassword(email, password);
         await sendEmailVerification(email)
-        alert('Sent email')
+        toast('Sent email')
     }
 
 

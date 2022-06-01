@@ -1,6 +1,6 @@
 # STRONG GYM
 
-This is The live site of project [Create React App](https://github.com/facebook/create-react-app).
+This is The live site of project [https://independent-service-prov-f1a49.web.app].
 
 ## Available Scripts
 

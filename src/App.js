@@ -11,6 +11,7 @@ import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Services from './Pages/Services/Services/Services';
 import Footer from './Sheared/Footer/Footer';
+import { ToastContainer } from 'react-bootstrap';
 function App() {
   return (
     <div >
@@ -31,6 +32,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

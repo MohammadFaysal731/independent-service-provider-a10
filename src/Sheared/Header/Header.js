@@ -23,6 +23,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/services">SERVICES</Nav.Link>
                         <Nav.Link as={Link} to="/blogs">BLOGS</Nav.Link>
                         <Nav.Link as={Link} to="/aboutMe">ABOUT ME</Nav.Link>
+                        <Nav.Link as={Link} to="/aboutMe">ABOUT ME</Nav.Link>
                         {
                             user ?
                                 <span className='d-flex justify-content-center align-self-center'>
