@@ -2,6 +2,7 @@ import { signOut } from 'firebase/auth';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import CustomLink from '../CustomLink/CustomLink';
 import auth from '../../firebase.init';
 import logo from '../../images/logoes/strong-gym-logo.png';
 const Header = () => {
@@ -19,10 +20,10 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/services">SERVICES</Nav.Link>
-                        <Nav.Link as={Link} to="/blogs">BLOGS</Nav.Link>
-                        <Nav.Link as={Link} to="/aboutMe">ABOUT ME</Nav.Link>
+                    <Nav className="ms-auto fw-3">
+                        <Nav.Link as={CustomLink} to="/services">SERVICES</Nav.Link>
+                        <Nav.Link as={CustomLink} to="/blogs">BLOGS</Nav.Link>
+                        <Nav.Link as={CustomLink} to="/aboutMe">ABOUT ME</Nav.Link>
                         {
                             user ?
                                 <span className='d-flex justify-content-center align-self-center'>
