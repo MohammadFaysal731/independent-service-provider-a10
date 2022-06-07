@@ -4,12 +4,11 @@ This is The live site of project [https://independent-service-prov-f1a49.web.app
 
 ## Available Scripts
 
- The Project have 5 Route
-#### &bull;Title
-#### &bull;Services
-#### &bull;Blogs
-#### &bull;About me
-#### &bull;Login
+## Features of this project
+#### &bull;This website is an independent service provider.
+#### &bull;This website has many kinds of systems for login.
+#### &bull;This website has a protected route.
+
 
 #### This project will make by create-react-app and use react-router, react-firebase-hook,react-toastify ect. 
 
